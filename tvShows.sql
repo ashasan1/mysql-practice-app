@@ -20,18 +20,41 @@ INSERT INTO shows (showName, tvProvider) values ("Stranger Things", "Netflix");
 INSERT INTO shows (showName, tvProvider) values ("WandaVision", "DisneyPlus");
 INSERT INTO shows (showName, tvProvider) values ("Killing Eve", "Hulu");
 
+-- create table for tv providers with columns id and providername --
 
--- CREATE TABLE authors(
---   id INTEGER(11) AUTO_INCREMENT NOT NULL,
---   firstName VARCHAR(100),
---   lastName VARCHAR(100),
---   PRIMARY KEY (id)
--- );
+CREATE TABLE showProvider(
+    id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    providerName VARCHAR(30),
+    PRIMARY KEY(id)
+);
 
--- INSERT INTO authors (firstName, lastName) values ('Jane', 'Austen');
--- INSERT INTO authors (firstName, lastName) values ('Mark', 'Twain');
--- INSERT INTO authors (firstName, lastName) values ('Lewis', 'Carroll');
--- INSERT INTO authors (firstName, lastName) values ('Andre', 'Asselin');
+-- insert provider names into table showProvider --
+
+INSERT INTO showProvider (providerName) values ('Netflix'); -- Netflix id = 1 --
+INSERT INTO showProvider (providerName) values ('Hulu'); -- Hulu id = 2 --
+INSERT INTO showProvider (providerName) values ('DisneyPlus'); -- DisneyPlay id = 3 --
+
+-- update the show table and replace the tvprodiver names with the matching showprovider ids -- 
+
+UPDATE shows
+SET tvProvider = 2 --Hulu
+WHERE id = 1; --Handmaids Tale
+
+UPDATE shows
+SET tvProvider = 1 --Netflix
+WHERE id = 2; --Bridgerton
+
+UPDATE shows
+SET tvProvider = 1 --Netflix
+WHERE id = 3; -- Stranger Things
+
+UPDATE shows
+SET tvProvider = 3 --DisneyPlus
+WHERE id = 4; --WandaVision
+
+UPDATE shows
+SET tvProvider = 2 --Hulu
+WHERE id = 5; --Killing Eve
 
 
 SELECT * FROM authors;
@@ -39,9 +62,9 @@ SELECT * FROM shows;
 
 -- show ALL books with authors
 -- INNER JOIN will only return all matching values from both tables
-SELECT title, firstName, lastName
-FROM books
-INNER JOIN authors ON books.authorId = authors.id;
+SELECT showName, providerName
+FROM shows
+INNER JOIN showProvider ON shows.tvProvider = showProvider.id;
 
 -- show ALL books, even if we don't know the author
 -- LEFT JOIN returns all of the values from the left table, and the matching ones from the right table
@@ -54,3 +77,16 @@ LEFT JOIN authors ON books.authorId = authors.id;
 SELECT title, firstName, lastName
 FROM books
 RIGHT JOIN authors ON books.authorId = authors.id;
+
+
+-- CREATE TABLE authors(
+--   id INTEGER(11) AUTO_INCREMENT NOT NULL,
+--   firstName VARCHAR(100),
+--   lastName VARCHAR(100),
+--   PRIMARY KEY (id)
+-- );
+
+-- INSERT INTO authors (firstName, lastName) values ('Jane', 'Austen');
+-- INSERT INTO authors (firstName, lastName) values ('Mark', 'Twain');
+-- INSERT INTO authors (firstName, lastName) values ('Lewis', 'Carroll');
+-- INSERT INTO authors (firstName, lastName) values ('Andre', 'Asselin');
