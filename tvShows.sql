@@ -56,6 +56,7 @@ UPDATE shows
 SET tvProvider = 2 --Hulu
 WHERE id = 5; --Killing Eve
 
+-- now, use the "showProvider" table values and replace the matching provider id in our "shows" table --
 
 SELECT * FROM shows;
 SELECT * FROM showProvider;
