@@ -61,6 +61,8 @@ WHERE id = 5; --Killing Eve
 SELECT * FROM shows;
 SELECT * FROM showProvider;
 
+SELECT showName, providerName FROM shows;
+
 -- show ALL tv shows from "shows" using the showProvider instead of tvProvider id number
 -- INNER JOIN will only return all matching values from both tables
 SELECT showName, providerName
