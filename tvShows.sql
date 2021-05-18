@@ -66,3 +66,11 @@ SELECT * FROM showProvider;
 SELECT showName, providerName
 FROM shows
 INNER JOIN showProvider ON shows.tvProvider = showProvider.id;
+
+-- deleting --
+
+DELETE FROM --table_name--
+WHERE -- condition--
+
+-- DELETE FROM shows
+--WHERE id = 2--
