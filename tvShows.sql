@@ -63,6 +63,8 @@ SELECT * FROM showProvider;
 
 SELECT showName, providerName FROM shows;
 
+SELECT * FROM shows WHERE id = 3;
+
 -- show ALL tv shows from "shows" using the showProvider instead of tvProvider id number
 -- INNER JOIN will only return all matching values from both tables
 SELECT showName, providerName
